@@ -25,6 +25,7 @@
 #include <assert.h>
 #include <string>
 #include <array>
+#include<cmath>
 
 // Ignore the intellisense error "cannot open source file" for .shh files.
 // They will be created during the build sequence before the preprocessor runs.
@@ -326,6 +327,28 @@ void Graphics::DrawRect(int start_x, int start_y,int width,int height, Color c)
 		}
 	}
 
+}
+
+void Graphics::DrawCircle(int center_x, int center_y, int radius, Color c)
+{
+	int hypotenous = 0; 
+
+	for (int current_y = (center_y - radius); current_y <= (center_y + radius); current_y++)
+	{
+		for (int current_x = (center_x - radius); current_x <= (center_x + radius); current_x++)
+		{
+			hypotenous = sqrt((center_x - current_x)*(center_x - current_x) + (center_y - current_y)*(center_y - current_y));
+
+			if (hypotenous <= radius)
+			{
+				PutPixel(current_x, current_y, c);
+			}
+
+
+		}
+
+
+	}
 }
 
 
