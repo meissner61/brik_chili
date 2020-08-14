@@ -42,6 +42,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	gfx.DrawRect(50, 50, 100, 200, c);
+	gfx.DrawRect(50, 50, 50, 50, c);
 
 }
