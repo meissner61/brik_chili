@@ -26,6 +26,10 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd )
 {
+    Vec2 v1(5.0f, 10.0f);
+    Vec2 v2(8.0f, 5.0f);
+
+    float dist = (v1 - v2).GetLength();
 }
 
 void Game::Go()
