@@ -23,6 +23,7 @@
 #include <wrl.h>
 #include "ChiliException.h"
 #include "Colors.h"
+#include "RectF.h"
 
 class Graphics
 {
@@ -57,6 +58,10 @@ public:
 	}
 	void PutPixel( int x,int y,Color c );
 	void DrawRectPoint(int x0, int y0, int x1, int y1, Color c);
+	void DrawRect(const RectF& rect, Color color)
+	{
+		DrawRectPoint(int(rect.left), int(rect.top), int(rect.right), int(rect.bottom), color);
+	}
 	void DrawRect(int x0, int y0, int width, int height, Color c)
 	{
 		DrawRectPoint(x0, y0, x0 + width, y0 + height, c);

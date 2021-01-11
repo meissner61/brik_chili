@@ -1,23 +1,23 @@
 #include "Vec2.h"
 
-Vec2::Vec2(float x, float y)
+Vec2::Vec2(float x_in, float y_in)
 	:
-	m_x(x),
-	m_y(y)
+	x(x_in),
+	y(y_in)
 {
 }
 
 Vec2 Vec2::operator+(const Vec2& rhs) const
 {
-	return Vec2(m_x + rhs.m_x, m_y+ rhs.m_y);
+	return Vec2(x + rhs.x, y+ rhs.y);
 }
 
 Vec2& Vec2::operator+=(const Vec2& rhs)
 {
 // two ways to return this operation
 	/*
-	m_x += rhs.m_x;
-	m_y += rhs.m_y;
+	x += rhs.x;
+	y += rhs.y;
 
 	return *this;
 	*/
@@ -35,7 +35,7 @@ Vec2& Vec2::operator+=(const Vec2& rhs)
 
 Vec2 Vec2::operator*(float rhs) const
 {
-	return Vec2(m_x * rhs,m_y * rhs);
+	return Vec2(x * rhs,y * rhs);
 }
 
 Vec2& Vec2::operator*=(float rhs)
@@ -45,7 +45,7 @@ Vec2& Vec2::operator*=(float rhs)
 
 Vec2 Vec2::operator-(const Vec2& rhs) const
 {
-	return Vec2(m_x - rhs.m_x, m_y - rhs.m_y);
+	return Vec2(x - rhs.x, y - rhs.y);
 }
 
 Vec2& Vec2::operator-=(const Vec2& rhs)
@@ -61,24 +61,24 @@ float Vec2::GetLength() const
 
 float Vec2::GetLengthSquared() const
 {
-	return m_x*m_x + m_y*m_y;
+	return x*x + y*y;
 }
 
 Vec2& Vec2::Normalize()
 {
-	float len = GetLength();
-	return Vec2(m_x * (1 / len), m_y * (1 / len));
+	
+	return *this = GetNormalized();
 }
 
 Vec2 Vec2::GetNormalized() const
 {
 	float len = GetLength();
 	//I keep making this mistake but use the vector as a whole entity!!
-	//return Vec2(m_x * (1 / len), m_y * (1 / len)); //<------BAD
+	//return Vec2(x * (1 / len), y * (1 / len)); //<------BAD
 
 	if (len != 0.0f)
 	{
-		return *this * (1 / len);
+		return *this * (1.0f / len);
 	}
 
 	return *this;

@@ -42,8 +42,5 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	gfx.DrawRectPoint(50, 50, 100, 100, c);
-
-	gfx.DrawCircle(300, 300, 10, c);
 
 }
