@@ -42,5 +42,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-
+    Brick brik(RectF(50.0f, 100.0f, 50.0f, 100.0f), Colors::Blue);
+    brik.Draw(gfx);
 }
