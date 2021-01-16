@@ -12,3 +12,7 @@ void Brick::Draw(Graphics& gfx) const
 {
 	gfx.DrawRect(rect, color);
 }
+
+void Brick::CheckCollision()
+{
+}

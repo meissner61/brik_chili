@@ -38,12 +38,22 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+    if (wnd.kbd.KeyIsPressed(VK_LEFT))
+    {
+        ;
+    }
+
+    if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+    {
+        ;
+    }
+    bal.Update();
+
 }
 
 void Game::ComposeFrame()
 {
-
-    Ball bal(Vec2(50.0f,50.0f), Colors::Green);
+    
     bal.Draw(gfx);
 
 }

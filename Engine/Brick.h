@@ -8,6 +8,7 @@ class Brick
 public:
 	Brick(const RectF& rect_in, Color color_in);
 	void Draw(Graphics& gfx)const;
+	void CheckCollision();
 public:
 
 	RectF rect;

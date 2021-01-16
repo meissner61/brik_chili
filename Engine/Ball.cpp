@@ -11,3 +11,13 @@ void Ball::Draw(Graphics& gfx)
 {
 	gfx.DrawCircle(m_pos.x, m_pos.y, m_radius, m_color);
 }
+
+void Ball::Update()
+{
+	m_pos += m_velocity;
+}
+
+void Ball::CheckCollision()
+{
+	
+}
