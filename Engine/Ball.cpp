@@ -19,5 +19,23 @@ void Ball::Update()
 
 void Ball::CheckCollision()
 {
+	if (m_pos.x - m_radius - 1 <= screen.left)
+	{
+		m_velocity.x *= (-1);
+	}
+
+	if (m_pos.x + m_radius + 1 >= screen.right)
+	{
+		m_velocity.x *= (-1);
+	}
+
+	if (m_pos.y - m_radius - 1 <= screen.top)
+	{
+		m_velocity.y *= (-1);
+	}
 	
+	if (m_pos.y + m_radius+1 >= screen.bottom-20.0f)
+	{
+		m_velocity.y *= (-1);
+	}
 }

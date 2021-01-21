@@ -47,6 +47,8 @@ void Game::UpdateModel()
     {
         ;
     }
+    
+    bal.CheckCollision();
     bal.Update();
 
 }
