@@ -19,6 +19,6 @@ public:
 	Vec2		 m_pos;
 	Vec2	m_velocity{ 5.0f,-5.0f };
 	Color	   m_color = Colors::Red;
-	RectF ballRec{ m_pos.x - float(m_radius), m_pos.x + float(m_radius),
+	RectF rectangle{ m_pos.x - float(m_radius), m_pos.x + float(m_radius),
 		m_pos.y - float(m_radius), m_pos.y + float(m_radius) };
 };

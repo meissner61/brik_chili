@@ -24,7 +24,9 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+    bal(bal_pos),
+    paddle(paddle_pos,bal)
 {
 }
 
@@ -40,22 +42,24 @@ void Game::UpdateModel()
 {
     if (wnd.kbd.KeyIsPressed(VK_LEFT))
     {
-        ;
+        paddle.Move(-1);
     }
 
     if (wnd.kbd.KeyIsPressed(VK_RIGHT))
     {
-        ;
+        paddle.Move(1);
     }
     
     bal.CheckCollision();
     bal.Update();
 
+    paddle.CheckCollision(bal);
+
 }
 
 void Game::ComposeFrame()
 {
-    
+    paddle.Draw(gfx);
     bal.Draw(gfx);
 
 }
