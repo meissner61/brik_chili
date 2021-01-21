@@ -48,7 +48,7 @@ private:
 
 	Color c = Colors::Blue;
     Vec2 bal_pos{50.0f, 50.0f};
-    Ball bal{ bal_pos, Colors::Green };
+    Ball bal{ bal_pos };
 
 	/********************************/
 };
