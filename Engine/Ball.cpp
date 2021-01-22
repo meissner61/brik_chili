@@ -13,6 +13,22 @@ Ball::Ball(Vec2& position)
 {
 }
 
+Ball::Ball(Vec2 & position, Vec2 & velocity)
+	:
+	m_pos(position),
+	m_velocity(velocity)
+{
+
+}
+
+Ball::Ball(Vec2 & position, Vec2 & velocity, Color color)
+	:
+	m_pos(position),
+	m_velocity(velocity),
+	m_color(color)
+{
+}
+
 void Ball::Draw(Graphics& gfx)
 {
 	gfx.DrawCircle(m_pos.x, m_pos.y, m_radius, m_color);
@@ -30,12 +46,12 @@ void Ball::CheckCollision()
 		m_velocity.x *= (-1);
 	}
 
-	if (m_pos.x + m_radius + 1 >= screen.right)
+	else if (m_pos.x + m_radius + 1 >= screen.right)
 	{
 		m_velocity.x *= (-1);
 	}
 
-	if (m_pos.y - m_radius - 1 <= screen.top)
+	else if (m_pos.y - m_radius - 1 <= screen.top)
 	{
 		m_velocity.y *= (-1);
 	}
@@ -46,8 +62,9 @@ void Ball::CheckCollision()
 	Because if the speed is too fast it goes out of bounds quickly and
 	throws said exception*/
 
-	if (m_pos.y + m_radius+1 >= screen.bottom-20.0f) 
+	else if (m_pos.y + m_radius+1 >= screen.bottom-1) 
 	{
+		m_pos.y = 550;
 		m_velocity.y *= (-1);
 	}
 }

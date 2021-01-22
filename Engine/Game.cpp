@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-    bal(bal_pos),
+	bal(bal_pos, Vec2{ 5.0f,5.0f }),
     paddle(paddle_pos,bal)
 {
 }

@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="ChiliBall.h" />
     <ClInclude Include="ChiliException.h" />
     <ClInclude Include="ChiliWin.h" />
     <ClInclude Include="Colors.h" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="ChiliBall.cpp" />
     <ClCompile Include="DXErr.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Graphics.cpp" />
