@@ -1,28 +1,28 @@
-#include "Ball.h"
+#include "ChiliBall.h"
 
-#include "SpriteCodex.h"
+//#include "SpriteCodex.h"
 
-Ball::Ball( const Vec2 & pos_in,const Vec2 & vel_in )
+ChiliBall::ChiliBall( const Vec2 & pos_in,const Vec2 & vel_in )
 	:
 	pos( pos_in ),
 	vel( vel_in )
 {
 }
 
-void Ball::Draw( Graphics & gfx ) const
+void ChiliBall::Draw( Graphics & gfx ) const
 {
-	SpriteCodex::DrawBall( pos,gfx );
+	//SpriteCodex::DrawBall( pos,gfx );
 }
 
-void Ball::Update( float dt )
+void ChiliBall::Update( float dt )
 {
 	pos += vel * dt;
 }
 
-bool Ball::DoWallCollision( const RectF & walls )
+bool ChiliBall::DoWallCollision( const RectF & walls )
 {
 	bool collided = false;
-	const RectF rect = GetRect();
+	const RectF rect; //= GetRect();
 	if( rect.left < walls.left )
 	{
 		pos.x += walls.left - rect.left;
@@ -50,17 +50,17 @@ bool Ball::DoWallCollision( const RectF & walls )
 	return collided;
 }
 
-void Ball::ReboundX()
+void ChiliBall::ReboundX()
 {
 	vel.x = -vel.x;
 }
 
-void Ball::ReboundY()
+void ChiliBall::ReboundY()
 {
 	vel.y = -vel.y;
 }
 
-RectF Ball::GetRect() const
-{
-	return RectF::FromCenter( pos,radius,radius );
-}
+//RectF ChiliBall::GetRect() const
+//{
+//	//return RectF::FromCenter( pos,radius,radius );
+//}

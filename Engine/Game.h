@@ -50,8 +50,7 @@ private:
 	Color c = Colors::Blue;
     Vec2 bal_pos{50.0f, 50.0f};
     Ball bal{  };
-    Vec2 paddle_pos{ 400.0f,500.0f };
-    Paddle paddle{  };
+
 
 	/********************************/
 };

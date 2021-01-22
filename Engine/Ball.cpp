@@ -41,18 +41,22 @@ void Ball::Update()
 
 void Ball::CheckCollision()
 {
-	if (m_pos.x - m_radius - 1 <= screen.left)
+	if (m_pos.x - m_radius - 1 <= 0.0f)//left
 	{
+		m_pos.x = 11.0f;
 		m_velocity.x *= (-1);
 	}
 
-	else if (m_pos.x + m_radius + 1 >= screen.right)
+	else if (m_pos.x + m_radius + 1 >= 800.0f)//right
 	{
+		m_pos.x = 788.0f;
 		m_velocity.x *= (-1);
 	}
 
-	else if (m_pos.y - m_radius - 1 <= screen.top)
+	else if (m_pos.y - m_radius <= 1.0f)//top
 	{
+		m_pos.y = 11.0f;
+		//m_pos.y += (0.0f - m_pos.y);
 		m_velocity.y *= (-1);
 	}
 	
@@ -62,9 +66,10 @@ void Ball::CheckCollision()
 	Because if the speed is too fast it goes out of bounds quickly and
 	throws said exception*/
 
-	else if (m_pos.y + m_radius+1 >= screen.bottom-1) 
+	else if (m_pos.y + m_radius >= 599.0f) //bottom
 	{
-		m_pos.y = 550;
+		m_pos.y = 589.0f;
+		//m_pos.y -= (m_pos.y - 600.0f);
 		m_velocity.y *= (-1);
-	}
+	} 
 }
