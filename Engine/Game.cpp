@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	bal(Vec2{ 285.0f,259.0f }, Vec2{ 15.0f,15.0f })
+	bal(Vec2{ 285.0f,259.0f }, Vec2{ 15.0f,-15.0f })
 
 {
 }
