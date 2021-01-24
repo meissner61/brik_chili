@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	bal(Vec2{ 285.0f,259.0f }, Vec2{ 10.0f,10.0f }),
+	bal(Vec2{ 385.0f,459.0f }, Vec2{ 15.3f,15.3f }),
     playscreen(0.0f, float(Graphics::ScreenWidth),  0.0f, float(Graphics::ScreenHeight))
 
 {
