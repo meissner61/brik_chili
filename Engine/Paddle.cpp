@@ -19,9 +19,9 @@ void Paddle::Move(int direction)
 
 void Paddle::CheckCollision(Ball& ball)
 {
-	if (ball.rectangle.bottom >= m_rect.top)
-	{
-		ball.m_velocity.y *= (-1);
-	}
+	//if (ball.rectangle.bottom >= m_rect.top)
+	//{
+	//	ball.m_velocity.y *= (-1);
+	//}
 }
 

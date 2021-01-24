@@ -59,7 +59,8 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-
+    bal.ShowRectF(gfx);
     bal.Draw(gfx);
+
 
 }

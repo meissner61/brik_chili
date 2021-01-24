@@ -75,3 +75,15 @@ void Ball::CheckCollision()
 		m_velocity.y *= (-1);
 	} 
 }
+
+RectF Ball::GetRect() const
+{
+
+	return RectF::FromCenter(m_pos, m_radius, m_radius);
+}
+
+void Ball::ShowRectF(Graphics& gfx) const
+{
+
+	gfx.DrawRectOutline(GetRect(), m_rectColor);
+}
