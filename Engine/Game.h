@@ -45,7 +45,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-   // RectF playscreen( 0.0f, float(Graphics::ScreenWidth), float 0.0f, float(Graphics::ScreenHeight);
+    RectF playscreen;
 
 	Color c = Colors::Blue;
     Vec2 bal_pos{50.0f, 50.0f};

@@ -31,7 +31,7 @@ Ball::Ball(Vec2 & position, Vec2 & velocity, Color color)
 
 void Ball::Draw(Graphics& gfx)
 {
-	gfx.DrawCircle(m_pos.x, m_pos.y, m_radius, m_color);
+	gfx.DrawCircle(int(m_pos.x), int(m_pos.y), m_radius, m_color);
 }
 
 void Ball::Update()
@@ -39,40 +39,41 @@ void Ball::Update()
 	m_pos += m_velocity;
 }
 
-void Ball::CheckCollision()
+void Ball::WallCollision(const RectF wall)
 {
-	if (m_pos.x - m_radius <= 0.0f)//left
+	if (m_pos.x - m_radius <= wall.left)//left wall
 	{
-		//m_pos.x -= 0.0f - m_pos.x;
-		m_pos.x = 11.0f;
-		m_velocity.x *= (-1);
+		m_pos.x += wall.left - GetRect().left;
+		m_velocity.x = -m_velocity.x;
+		//m_pos.x = 11.0f;
+		//m_velocity.x *= (-1);
 	}
 
-	if (m_pos.x + m_radius >= 799.0f)//right
+	if (m_pos.x + m_radius >= 799.0f)//right wall
 	{
-
-		m_pos.x = 788.0f;
-		m_velocity.x *= (-1);
+		m_pos.x -= GetRect().right - wall.right;
+		m_velocity.x = -m_velocity.x;
+		//m_pos.x = 788.0f;
+		//m_velocity.x *= (-1);
 	}
 
-	if (m_pos.y - m_radius <= 1.0f)//top
+	if (m_pos.y - m_radius <= 1.0f)//top wall
 	{
-		m_pos.y = 11.0f;
-		//m_pos.y += (0.0f - m_pos.y);
-		m_velocity.y *= (-1);
+		m_pos.y += wall.top - GetRect().top;
+		m_velocity.y = -m_velocity.y;
+		//m_pos.y = 11.0f;
+		//m_velocity.y *= (-1);
 	}
 	
-	/*Something weird is going on at the bottom of the screen that anytime
-	It gets greater than the bottom it automatically throws a dword exception
-	so for now I just have the ball rebound 20 pixels above the screen
-	Because if the speed is too fast it goes out of bounds quickly and
-	throws said exception*/
 
 	if (m_pos.y + m_radius >= 599.0f) //bottom
 	{
-		m_pos.y = 589.0f;
+		//m_pos.y = 589.0f;
+		m_pos.y -= (GetRect().bottom - wall.bottom)+1;
+		m_velocity.y = -m_velocity.y;
+
 		//m_pos.y -= (m_pos.y - 600.0f);
-		m_velocity.y *= (-1);
+		//m_velocity.y *= (-1);
 	} 
 }
 

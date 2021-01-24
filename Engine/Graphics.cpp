@@ -319,9 +319,9 @@ void Graphics::PutPixel( int x,int y,Color c )
 
 void Graphics::DrawRectOutline(const RectF& rect, Color color)
 {
-	for (int y = rect.top; y <= rect.bottom; y++)
+	for (int y = int(rect.top); y <= int(rect.bottom); y++)
 	{
-		for (int x = rect.left; x <= rect.right; x++)
+		for (int x = int(rect.left); x <= int(rect.right); x++)
 		{
 			if (y == rect.top || y == rect.bottom || x == rect.left || x == rect.right)
 			{

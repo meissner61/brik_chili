@@ -14,7 +14,7 @@ public:
 	Ball(Vec2& position, Vec2& velocity, Color color);
 	void Draw(Graphics& gfx);
 	void Update();
-	void CheckCollision();
+	void WallCollision(const RectF wall);
 	RectF GetRect() const;
 	void ShowRectF(Graphics& gfx) const;
 	//void showRectF() const;
@@ -24,12 +24,8 @@ public:
 
 	static constexpr int m_radius = 10;
 	const RectF screen{ 0.0f, float(Graphics::ScreenWidth), 0.0f, float(Graphics::ScreenHeight) };
-	Vec2		 m_pos; //centered position
-	Vec2	m_velocity;
-	Color	   m_color = Colors::Red;
-	Color		m_rectColor = Colors::Green;
-
-
-	/*RectF rectangle{ m_pos.x - float(m_radius), m_pos.x + float(m_radius),
-		m_pos.y - float(m_radius), m_pos.y + float(m_radius) };*/
+	Vec2		                     m_pos; //centered position
+	Vec2	                    m_velocity;
+	Color	         m_color = Colors::Red;
+	Color	   m_rectColor = Colors::Green;
 };
