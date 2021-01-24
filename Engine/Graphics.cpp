@@ -317,6 +317,22 @@ void Graphics::PutPixel( int x,int y,Color c )
 	pSysBuffer[Graphics::ScreenWidth * y + x] = c;
 }
 
+void Graphics::DrawRectOutline(const RectF& rect, Color color)
+{
+	for (int y = rect.top; y <= rect.bottom; y++)
+	{
+		for (int x = rect.left; x <= rect.right; x++)
+		{
+			if (y == rect.top || y == rect.bottom || x == rect.left || x == rect.right)
+			{
+				PutPixel(x, y, color);
+			}
+				
+		}
+
+	}
+}
+
 void Graphics::DrawRectPoint(int x0, int y0, int x1, int y1, Color c)
 {
 	if (x0 > x1)
@@ -337,6 +353,8 @@ void Graphics::DrawRectPoint(int x0, int y0, int x1, int y1, Color c)
 
 	}
 }
+
+
 
 void Graphics::DrawCircle(int center_x, int center_y, int radius, Color c)
 {

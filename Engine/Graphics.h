@@ -58,6 +58,7 @@ public:
 	}
 	void PutPixel( int x,int y,Color c );
 	void DrawRectPoint(int x0, int y0, int x1, int y1, Color c);
+	void DrawRectOutline(const RectF& rect, Color color);
 	void DrawRect(const RectF& rect, Color color)
 	{
 		DrawRectPoint(int(rect.left), int(rect.top), int(rect.right), int(rect.bottom), color);
