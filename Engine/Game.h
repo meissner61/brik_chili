@@ -26,6 +26,7 @@
 #include "Brick.h"
 #include "Ball.h"
 #include "Paddle.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -45,6 +46,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+    FrameTimer ft;
     RectF playscreen;
 
 	Color c = Colors::Blue;

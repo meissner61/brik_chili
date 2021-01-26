@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	bal(Vec2{ 285.0f,259.0f }, Vec2{ 10.0f,10.0f }),
+	bal(Vec2{ 285.0f,259.0f }, Vec2{ 300.0f,300.0f }),
     playscreen(0.0f, float(Graphics::ScreenWidth),  0.0f, float(Graphics::ScreenHeight))
 
 {
@@ -41,6 +41,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+    const float dt = ft.Mark();
     if (wnd.kbd.KeyIsPressed(VK_LEFT))
     {
         
@@ -52,7 +53,7 @@ void Game::UpdateModel()
     }
     
    
-    bal.Update();
+    bal.Update(dt);
 	bal.WallCollision(playscreen);
 
 

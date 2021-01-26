@@ -2,6 +2,7 @@
 #include "Vec2.h"
 #include "Graphics.h"
 #include "RectF.h"
+#include "FrameTimer.h"
 
 //My attempt at making a ball
 class Ball
@@ -13,7 +14,7 @@ public:
 	Ball(Vec2& position, Vec2& velocity);
 	Ball(Vec2& position, Vec2& velocity, Color color);
 	void Draw(Graphics& gfx);
-	void Update();
+	void Update(float dt);
 	void WallCollision(const RectF wall);
 	RectF GetRect() const;
 	void ShowRectF(Graphics& gfx) const;

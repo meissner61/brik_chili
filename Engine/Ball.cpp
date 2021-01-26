@@ -1,5 +1,6 @@
 #include "Ball.h"
 
+
 Ball::Ball(Vec2& position, Color color)
 	:
 	m_pos(position),
@@ -34,9 +35,9 @@ void Ball::Draw(Graphics& gfx)
 	gfx.DrawCircle(int(m_pos.x), int(m_pos.y), m_radius, m_color);
 }
 
-void Ball::Update()
+void Ball::Update(float dt)
 {
-	m_pos += m_velocity;
+	m_pos += m_velocity * dt;
 }
 
 void Ball::WallCollision(const RectF wall)
