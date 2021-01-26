@@ -48,8 +48,7 @@ private:
     RectF playscreen;
 
 	Color c = Colors::Blue;
-    Vec2 bal_pos{50.0f, 50.0f};
-    Ball bal{  };
+    Ball bal;
 
 
 	/********************************/
