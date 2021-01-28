@@ -319,11 +319,13 @@ void Graphics::PutPixel( int x,int y,Color c )
 
 void Graphics::DrawRectOutline(const RectF& rect, Color color)
 {
+
+
 	for (int y = int(rect.top); y <= int(rect.bottom); y++)
 	{
 		for (int x = int(rect.left); x <= int(rect.right); x++)
 		{
-			if (y == rect.top || y == rect.bottom || x == rect.left || x == rect.right)
+			if (y <= rect.top || y >= rect.bottom - 1 || x <= rect.left || x >= rect.right - 1)
 			{
 				PutPixel(x, y, color);
 			}
