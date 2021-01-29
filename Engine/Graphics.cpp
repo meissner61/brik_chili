@@ -372,12 +372,31 @@ void Graphics::DrawCircle(int center_x, int center_y, int radius, Color c)
 			{
 				PutPixel(current_x, current_y, c);
 			}
+			
+		}
+		
+	}
+}
 
+void Graphics::DrawCircleOutline(int center_x, int center_y, int radius, Color c)
+{
+	int hypotenous = 0;
+
+	for (int current_y = (center_y - radius); current_y <= (center_y + radius); current_y++)
+	{
+		for (int current_x = (center_x - radius); current_x <= (center_x + radius); current_x++)
+		{
+			hypotenous = sqrt((center_x - current_x)*(center_x - current_x) + (center_y - current_y)*(center_y - current_y));
+
+			if (hypotenous == radius)
+			{
+				PutPixel(current_x, current_y, c);
+			}
 
 		}
 
-
 	}
+
 }
 
 
