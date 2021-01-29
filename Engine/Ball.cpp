@@ -35,6 +35,11 @@ void Ball::Draw(Graphics& gfx)
 	gfx.DrawCircle(int(m_pos.x), int(m_pos.y), m_radius, m_color);
 }
 
+void Ball::DrawOutline(Graphics & gfx)
+{
+	gfx.DrawCircleOutline(int(m_pos.x), int(m_pos.y), m_radius, m_color);
+}
+
 void Ball::Update(float dt)
 {
 	m_pos += m_velocity * dt;

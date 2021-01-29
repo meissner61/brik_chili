@@ -61,8 +61,11 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-    bal.ShowRectF(gfx);
-    bal.Draw(gfx);
+    
+    bal.DrawOutline(gfx);
+	//bal.ShowRectF(gfx);
 
+
+	gfx.DrawCircleOutline(54.5324f, 50.5432f, 10, Colors::Cyan);
 
 }

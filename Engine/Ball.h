@@ -14,6 +14,7 @@ public:
 	Ball(Vec2& position, Vec2& velocity);
 	Ball(Vec2& position, Vec2& velocity, Color color);
 	void Draw(Graphics& gfx);
+	void DrawOutline(Graphics& gfx);
 	void Update(float dt);
 	void WallCollision(const RectF wall);
 	RectF GetRect() const;
