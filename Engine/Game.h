@@ -48,9 +48,9 @@ private:
 	/*  User Variables              */
     FrameTimer ft;
     RectF playscreen;
-
 	Color c = Colors::Blue;
     Ball bal;
+	Paddle pad;
 
 
 	/********************************/

@@ -42,30 +42,26 @@ void Game::Go()
 void Game::UpdateModel()
 {
     const float dt = ft.Mark();
-    if (wnd.kbd.KeyIsPressed(VK_LEFT))
-    {
-        
-    }
+	
 
-    if (wnd.kbd.KeyIsPressed(VK_RIGHT))
-    {
-        
-    }
-    
    
     bal.Update(dt);
 	bal.WallCollision(playscreen);
+	pad.Move(wnd.kbd, dt);
+	pad.CheckWallCollision(playscreen);
 
 
 }
 
 void Game::ComposeFrame()
 {
+	pad.Draw(gfx);
     
     bal.DrawOutline(gfx);
 	//bal.ShowRectF(gfx);
 
 
 	gfx.DrawCircleOutline(54.5324f, 50.5432f, 10, Colors::Cyan);
+
 
 }
