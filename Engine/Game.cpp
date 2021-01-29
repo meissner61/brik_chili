@@ -49,6 +49,7 @@ void Game::UpdateModel()
 	bal.WallCollision(playscreen);
 	pad.Move(wnd.kbd, dt);
 	pad.CheckWallCollision(playscreen);
+	pad.TopCollision(bal);
 
 
 }

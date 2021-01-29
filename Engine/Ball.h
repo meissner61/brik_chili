@@ -19,6 +19,9 @@ public:
 	void WallCollision(const RectF wall);
 	RectF GetRect() const;
 	void ShowRectF(Graphics& gfx) const;
+	void ReboundY();
+	void ReboundX();
+	RectF GetCenteredRect() const;
 	//void showRectF() const;
 
 public:

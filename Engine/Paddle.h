@@ -12,10 +12,11 @@ public:
 
 	Paddle() = default;
 
-	void Draw(Graphics& gfx);
+	void Draw(Graphics& gfx) const;
 	void Move(Keyboard& kbd, float dt);
 	void CheckWallCollision(RectF wall);
-	void CheckCollision(Ball& ball);
+	void TopCollision(Ball& ball);
+	RectF GetRect() const;
 
 public:
 

@@ -2,9 +2,10 @@
 
 
 
-void Paddle::Draw(Graphics& gfx)
+void Paddle::Draw(Graphics& gfx) const
 {
-	gfx.DrawRectPoint(m_pos.x, m_pos.y, m_pos.x + m_width, m_pos.y + m_height, m_color);
+	const RectF rect = GetRect();
+	gfx.DrawRectOutline(rect, m_color);
 }
 
 void Paddle::Move(Keyboard& kbd, float dt)
@@ -29,11 +30,24 @@ void Paddle::CheckWallCollision(RectF wall)
 
 }
 
-void Paddle::CheckCollision(Ball& ball)
+void Paddle::TopCollision(Ball& ball)
 {
-	//if (ball.rectangle.bottom >= m_rect.top)
+	const RectF ballRect = ball.GetRect();
+	const RectF rect = GetRect();
+
+	//if (ballRect.bottom > rect.top && ballRect.right > rect.left && ballRect.left < rect.right)
 	//{
-	//	ball.m_velocity.y *= (-1);
+	//	ball.ReboundY();
 	//}
+
+	if (ballRect.Overlapping(rect))
+	{
+		ball.ReboundY();
+	}
+}
+
+RectF Paddle::GetRect() const
+{
+	return RectF(m_pos,m_width,m_height);
 }
 

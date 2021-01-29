@@ -52,7 +52,7 @@ void Ball::WallCollision(const RectF wall)
 	if (ballRect.left < wall.left)//left wall
 	{
 		m_pos.x += wall.left - ballRect.left;
-		m_velocity.x = -m_velocity.x;
+		ReboundX();
 		//m_pos.x = 11.0f;
 		//m_velocity.x *= (-1);
 	}
@@ -60,7 +60,7 @@ void Ball::WallCollision(const RectF wall)
 	if (ballRect.right > wall.right)//right wall
 	{
 		m_pos.x -= ballRect.right - wall.right+1;
-		m_velocity.x = -m_velocity.x;
+		ReboundX();
 		//m_pos.x = 788.0f;
 		//m_velocity.x *= (-1);
 	}
@@ -68,7 +68,7 @@ void Ball::WallCollision(const RectF wall)
 	if (ballRect.top < wall.top)//top wall
 	{
 		m_pos.y += wall.top - ballRect.top;
-		m_velocity.y = -m_velocity.y;
+		ReboundY();
 		//m_pos.y = 11.0f;
 		//m_velocity.y *= (-1);
 	}
@@ -78,7 +78,7 @@ void Ball::WallCollision(const RectF wall)
 	{
 		//m_pos.y = 589.0f;
 		m_pos.y -= ballRect.bottom - wall.bottom+1;
-		m_velocity.y = -m_velocity.y;
+		ReboundY();
 
 		//m_pos.y -= (m_pos.y - 600.0f);
 		//m_velocity.y *= (-1);
@@ -95,4 +95,19 @@ void Ball::ShowRectF(Graphics& gfx) const
 {
 
 	gfx.DrawRectOutline(GetRect(), m_rectColor);
+}
+
+void Ball::ReboundY()
+{
+	m_velocity.y = -m_velocity.y;
+}
+
+void Ball::ReboundX()
+{
+	m_velocity.x = -m_velocity.x;
+}
+
+RectF Ball::GetCenteredRect() const
+{
+	return RectF::FromCenter(m_pos, m_radius, m_radius);
 }
